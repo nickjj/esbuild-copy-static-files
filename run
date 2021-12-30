@@ -42,7 +42,7 @@ function ci:test {
   # Generate a new set of static files by running esbuild again.
   node esbuild.config.js
 
-  # New the new last modified times.
+  # Get the new last modified times.
   mtime_file_1_output_after="$(stat -c %Y "${file_1_output}")"
   mtime_file_2_output_after="$(stat -c %Y "${file_2_output}")"
 
