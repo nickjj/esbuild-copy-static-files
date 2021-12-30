@@ -1,0 +1,22 @@
+{
+  "name": "esbuild-copy-static-files",
+  "version": "0.1.0",
+  "description": "An esbuild plugin to copy static files that changed from a source directory to a destination directory",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nickjj/esbuild-copy-static-files.git"
+  },
+  "keywords": [
+    "esbuild",
+    "copy",
+    "static",
+    "files"
+  ],
+  "author": "Nick Janetakis",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nickjj/esbuild-copy-static-files/issues"
+  },
+  "homepage": "https://github.com/nickjj/esbuild-copy-static-files"
+}

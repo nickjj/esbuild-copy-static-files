@@ -1,0 +1,10 @@
+{
+  "name": "test",
+  "private": true,
+  "dependencies": {
+    "esbuild-copy-static-files": ".."
+  },
+  "devDependencies": {
+    "esbuild": "0.14.8"
+  }
+}

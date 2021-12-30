@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+function npm:publish {
+  echo "..."
+}
+
+function clean {
+  # Remove machine generates files
+  rm -rf test/output/*
+  touch test/output/.keep
+}
+
+function ci:install-deps {
+  # Install Continuous Integration (CI) dependencies
+  sudo apt-get install -y --no-install-recommends shellcheck
+}
+
+function ci:test {
+  # Execute Continuous Integration (CI) pipeline
+  shellcheck run
+
+  clean
+
+  cd test
+
+  file_1_input="input/static/hello/world/1.txt"
+
+  file_1_output="output/hello/world/1.txt"
+  file_2_output="output/hello/world/2.txt"
+
+  # Run esbuild.
+  node esbuild.config.js
+
+  # Ensure both output files exist.
+  [ -f "${file_1_output}" ] && [ -f "${file_2_output}" ]
+
+  # Get the last modified time in Unix time (epoch).
+  mtime_file_1_output_before="$(stat -c %Y "${file_1_output}")"
+  mtime_file_2_output_before="$(stat -c %Y "${file_2_output}")"
+
+  # Update one of the files.
+  echo "modified this file" >> "${file_1_input}"
+
+  # Generate a new set of static files by running esbuild again.
+  node esbuild.config.js
+
+  # New the new last modified times.
+  mtime_file_1_output_after="$(stat -c %Y "${file_1_output}")"
+  mtime_file_2_output_after="$(stat -c %Y "${file_2_output}")"
+
+  # The first file's time should be different but not the second one.
+  [ "${mtime_file_1_output_before}" != "${mtime_file_1_output_after}" ]
+  [ "${mtime_file_2_output_before}" = "${mtime_file_2_output_after}" ]
+}
+
+function help {
+  printf "%s <task> [args]\n\nTasks:\n" "${0}"
+
+  compgen -A function | grep -v "^_" | cat -n
+
+  printf "\nExtended help:\n  Each task has comments for general usage\n"
+}
+
+# This idea is heavily inspired by: https://github.com/adriancooney/Taskfile
+TIMEFORMAT=$'\nTask completed in %3lR'
+time "${@:-help}"
