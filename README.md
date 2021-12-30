@@ -8,17 +8,15 @@ files from a source directory to a destination directory.
 ✔️ Only copy files that changed *(it compares an MD5 hash of each file)*  
 ✔️  No 3rd party dependencies *(it only uses a few functions from the Node standard library)*
 
-
 ## Why?
 
-I mainly created this because a certain live reloading tool I used wasn't smart
-enough to only live reload files that changed and copying all static files
-resulted in it thinking every static file I had changed every time I updated a
-CSS or JS file. This produced dozens of lines of log output every time I updated
-an asset in development and was also wildly inefficient.
+I mainly created this because a certain live reloading tool I use didn't filter
+out files that didn't change. This resulted in dozens of unnecessary file being
+copied and log output in development every time I changed a single CSS or JS
+file. It was wildly inefficient.
 
-This plugin fixes the above situation because it'll only copy static files if
-they changed on disk.
+This plugin fixes the above because it'll only copy static files if they
+changed on disk since they were last copied.
 
 ### How it works at a high level
 
