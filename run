@@ -2,10 +2,6 @@
 
 set -eo pipefail
 
-function npm:publish {
-  echo "..."
-}
-
 function clean {
   # Remove machine generates files
   rm -rf test/output/*
