@@ -5,8 +5,8 @@
 An [esbuild](https://esbuild.github.io/) plugin to efficiently copy static
 files from a source directory to a destination directory.
 
-✔️ Only copy files that changed *(it compares an MD5 hash of each file)*  
-✔️  No 3rd party dependencies *(it only uses a few functions from the Node standard library)*
+✔️ Only copy files that changed *(it compares an MD5 hash of each `src` and `dest` file)*  
+✔️  No 3rd party dependencies *(it only uses a few functions from Node's standard library)*
 
 ## Why?
 
