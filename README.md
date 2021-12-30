@@ -10,13 +10,22 @@ files from a source directory to a destination directory.
 
 ## Why?
 
-I mainly created this because a certain live reloading tool I use didn't filter
-out files that didn't change. This resulted in dozens of unnecessary files
-being copied and log outputs created in development every time I changed a
-single CSS or JS file. It was wildly inefficient.
+So you've decided that you want to copy HTML, icons, images, fonts and other
+static files from a source directory to a destination directory through
+esbuild. Great, I do too.
+
+Blindly recursively copying a `src` to `dest` directory can be both inefficient
+and distracting. For example if you have 50 static files and update a single JS
+file then you'll end up copying all 50 static files over.
+
+That's creating a lot of unnecessary disk writes. Depending on which web
+framework you use, that might cause a lot of log spam in development too. That
+could be due to live reload picking up a bunch of files that technically
+changed.
 
 This plugin fixes the above because it'll only copy static files if they
-changed on disk since they were last copied.
+changed on disk since they were last copied. You can think of this plugin as
+being similar to using `rsync` instead of `cp` on the command line.
 
 ### How it works at a high level
 
