@@ -15,4 +15,4 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Everything!
 
-[0.1.0]: https://github.com/nickjj/esbuild-copy-static/releases/tag/0.1.0
+[0.1.0]: https://github.com/nickjj/esbuild-copy-static-files/releases/tag/0.1.0
