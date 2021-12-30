@@ -25,7 +25,9 @@ changed.
 
 This plugin fixes the above because it'll only copy static files if they
 changed on disk since they were last copied. You can think of this plugin as
-being similar to using `rsync` instead of `cp` on the command line.
+being similar to using `rsync` instead of `cp` on the command line except
+there's no extra watcher or command that you need to run. It's all seamlessly
+integrated into esbuild.
 
 ### How it works at a high level
 
