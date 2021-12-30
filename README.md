@@ -11,9 +11,9 @@ files from a source directory to a destination directory.
 ## Why?
 
 I mainly created this because a certain live reloading tool I use didn't filter
-out files that didn't change. This resulted in dozens of unnecessary file being
-copied and log output in development every time I changed a single CSS or JS
-file. It was wildly inefficient.
+out files that didn't change. This resulted in dozens of unnecessary files
+being copied and log outputs created in development every time I changed a
+single CSS or JS file. It was wildly inefficient.
 
 This plugin fixes the above because it'll only copy static files if they
 changed on disk since they were last copied.
