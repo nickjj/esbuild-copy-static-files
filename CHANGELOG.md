@@ -9,7 +9,7 @@ Changelog](https://keepachangelog.com/en/1.0.0/).
 
 - Nothing yet!
 
-## [0.1.0] - 2021-03-11
+## [0.1.0] - 2021-12-29
 
 ### Added
 
