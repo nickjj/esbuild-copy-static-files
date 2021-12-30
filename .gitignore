@@ -3,6 +3,7 @@
 
 package-lock.json
 test/output/*
+!test/output/.keep
 test/package-lock.json
 
 
