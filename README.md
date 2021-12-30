@@ -76,6 +76,8 @@ yarn add --dev esbuild-copy-static-files
 npm install --save-dev esbuild-copy-static-files
 ```
 
+You can check it out on: <https://www.npmjs.com/package/esbuild-copy-static-files>
+
 ## Getting Started
 
 If you had the same directory structure as above, here's the bare minimum
