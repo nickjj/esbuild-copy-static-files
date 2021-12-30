@@ -27,4 +27,5 @@ jobs:
 
       - name: "Test"
         run: |
+          cd test && npm install && cd -
           ./run ci:test
