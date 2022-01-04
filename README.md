@@ -8,6 +8,14 @@ files from a source directory to a destination directory.
 ✔️ Only copy files that changed *(it compares an MD5 hash of each `src` and `dest` file)*  
 ✔️  No 3rd party dependencies *(it only uses a few functions from Node's standard library)*
 
+## Demo Video
+
+This video mostly covers what's in this README along with a bit more detail
+around the "why".
+
+[![Demo
+Video](https://img.youtube.com/vi/bMkmwq5tzSs/0.jpg)](https://www.youtube.com/watch?v=bMkmwq5tzSs)
+
 ## Why?
 
 So you've decided that you want to copy HTML, icons, images, fonts and other
