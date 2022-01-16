@@ -158,7 +158,7 @@ Here's the docs of every configurable option from Node's documentation:
 
 By default it will filter out, AKA skip copying any files that haven't changed.
 It does this by getting the MD5 hash of each `src` and `dest` file. If both
-files have the same MD5 hash then it get skipped.
+files have the same MD5 hash then it gets skipped.
 
 This is nice because if you had let's say 50 static files and only 1 of them
 changed then only 1 file will get copied.
