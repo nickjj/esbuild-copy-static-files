@@ -45,12 +45,12 @@ module.exports = (options = {}) => ({
     let filterUser = options.filter || false;
     let filterRun = filterUser ? filterSynthesis.bind(null, filterUser) : filter;
     build.onEnd(() => fs.cpSync(src, dest, {
-      dereference: true,
-      errorOnExist: false,
+      dereference: options.dereference || true,
+      errorOnExist: options.errorOnExist || false,
       filter: filterRun,
-      force: true,
-      preserveTimestamps: true,
-      recursive: true,
+      force: options.force || true,
+      preserveTimestamps: options.preserveTimestamps || true,
+      recursive: options.recursive || true,
     }))
   },
 })
