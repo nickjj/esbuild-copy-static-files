@@ -87,6 +87,9 @@ however you want. We'll go over all of the configuration options in a bit.
 
 ## Installation
 
+Just a heads up, this package uses Node's `fs.cpSync` function which depends on
+using at least Node v16.7.
+
 ```sh
 # Prefer Yarn?
 yarn add --dev esbuild-copy-static-files
