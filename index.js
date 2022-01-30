@@ -32,19 +32,25 @@ function filter(src, dest) {
   return getFileDigest(src) !== getFileDigest(dest)
 }
 
+function filterSynthesis(userFilter, src, dest) {
+  return userFilter(src, dest) && filter(src, dest);
+}
+
 module.exports = (options = {}) => ({
   name: 'copy-static-files',
   setup(build) {
     let src = options.src || './static'
     let dest = options.dest || '../public'
 
+    let filterUser = options.filter || false;
+    let filterRun = filterUser ? filterSynthesis.bind(null, filterUser) : filter;
     build.onEnd(() => fs.cpSync(src, dest, {
-      dereference: options.dereference || true,
-      errorOnExist: options.errorOnExist || false,
-      filter: options.filter || filter,
-      force: options.force || true,
-      preserveTimestamps: options.preserveTimestamps || true,
-      recursive: options.recursive || true,
+      dereference: true,
+      errorOnExist: false,
+      filter: filterRun,
+      force: true,
+      preserveTimestamps: true,
+      recursive: true,
     }))
   },
 })

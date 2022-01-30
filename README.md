@@ -149,10 +149,17 @@ Here's the docs of every configurable option from Node's documentation:
 - `dest` destination path to copy to.
 - `dereference` dereference symlinks.
 - `errorOnExist` when `force` is `false` and the destination exists, throw an error.
-- `filter` function to filter copied files / directories. Return `true` to copy the item, `false` to ignore it.
 - `force` overwrite existing file or directory. The copy operation will ignore errors if you set this to false and the destination exists. Use the `errorOnExist` option to change this behavior.
 - `preserveTimestamps` when `true` timestamps from `src` will be preserved.
 - `recursive` copy directories recursively.
+- `filter` function to filter copied files / directories. Return `true` to copy the item, `false` to ignore it.  
+
+```
+filter?(source: string, destination: string): boolean;
+  @need `fs.cpSync` — node.js v16.7.0 
+  @param src — source path to copy.  
+  @param dest — destination path to copy to.  
+```
 
 ### How does the filter function work?
 
