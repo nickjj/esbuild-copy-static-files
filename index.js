@@ -44,6 +44,7 @@ module.exports = (options = {}) => ({
 
     let filterUser = options.filter || false;
     let filterRun = filterUser ? filterSynthesis.bind(null, filterUser) : filter;
+
     build.onEnd(() => fs.cpSync(src, dest, {
       dereference: options.dereference || true,
       errorOnExist: options.errorOnExist || false,
