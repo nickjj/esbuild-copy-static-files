@@ -29,11 +29,13 @@ describe('Test Suites', () => {
     expect(filter(__dirname, path.resolve(__dirname, '..'))).toBeTruthy()
   })
 
-  test('copyPlugin', async () => {
+  test('copyStaticFiles', async () => {
     const tmpDir = path.join(__dirname, '..', 'static')
     fs.mkdirSync(tmpDir)
 
     await build({ plugins: [copyStaticFiles()] })
+    const publicDir = path.resolve(__dirname, '../../public')
+    fs.rmdirSync(publicDir)
 
     const spy = jest.spyOn(fs, 'cpSync')
     await build({
