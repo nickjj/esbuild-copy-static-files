@@ -1,0 +1,9 @@
+{
+  "extends": ".",
+  "compilerOptions": {
+    "module": "esnext",
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist/esm"
+  }
+}
